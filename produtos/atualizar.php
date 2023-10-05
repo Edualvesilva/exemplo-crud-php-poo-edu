@@ -1,8 +1,13 @@
 <?php
 
+require_once "../vendor/autoload.php";
+
+use ExemploCrudPoo\Fabricante;
 use ExemploCrudPoo\Produtos;
 
-require_once "../vendor/autoload.php";
+$fabricante = new Fabricante;
+$listaDeFabricantes = $fabricante->lerFabricantes();
+
 $produto = new Produtos;
 $produto->setId($_GET["id"]);
 $recebeProduto = $produto->lerUmProduto();
@@ -14,7 +19,7 @@ if (isset($_POST['atualizar'])) {
 
     $produto->setQuantidade($_POST["quantidade"]);
 
-    $produto->setFabricanteId($_POST["fabricante_id"]);
+    $produto->setFabricanteId($_POST["fabricante"]);
 
     $produto->setDescricao($_POST["descricao"]);
 
@@ -56,7 +61,7 @@ if (isset($_POST['atualizar'])) {
                     <option value=""></option>
 
                     <?php foreach ($listaDeFabricantes as $fabricante) { ?>
-                        <option <?php if ($produto["fabricante_id"] === $fabricante["id"]) echo " selected "; ?> value="<?= $fabricante['id'] ?>">
+                        <option <?php if ($recebeProduto["fabricante_id"] === $fabricante["id"]) echo " selected "; ?> value="<?= $fabricante['id'] ?>">
                             <?= $fabricante['nome'] ?>
                         </option>
                     <?php } ?>

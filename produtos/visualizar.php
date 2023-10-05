@@ -4,7 +4,7 @@ require_once "../vendor/autoload.php";
 use ExemploCrudPoo\Produtos;
 use ExemploCrudPoo\Utilitarios;
 $produtos = new Produtos;
-$utilitarios = new Utilitarios;
+
 $listaDeProdutos = $produtos->lerProdutos();
 ?>
 <!DOCTYPE html>
@@ -28,10 +28,10 @@ $listaDeProdutos = $produtos->lerProdutos();
                 <article class="shadow p-2">
                     <h3> <?=$produto["produto"]?> </h3>
                     <h4> <?=$produto["fabricante"]?> </h4>
-                    <p><b>Preço:</b> <?=$utilitarios->formatarPreco($produto["preco"])?> </p>
+                    <p><b>Preço:</b> <?=Utilitarios::formatarPreco($produto["preco"])?> </p>
                     <p><b>Quantidade:</b> <?=$produto["quantidade"]?> </p>
                     <p><b>Total:</b>
-                    <?=$utilitarios->calcularTotal($produto["preco"], $produto["quantidade"])?></p>
+                    <?=Utilitarios::calcularTotal($produto["preco"], $produto["quantidade"])?></p>
                     <hr>
                     <p>
                         <a href="atualizar.php?id=<?=$produto["id"]?>">Editar</a> |
