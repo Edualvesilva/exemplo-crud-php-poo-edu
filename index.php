@@ -12,7 +12,7 @@
         <hr>
         <p>Operações de <b>inserção</b>, <b>leitura</b>, <b>atualização</b> e <b>exclusão</b> de dados.</p>
         <hr>
-        <h2>Escolha o que deseja gerenciar: rehouhrfeu</h2>
+        <h2>Escolha o que deseja gerenciar: </h2>
         <ul>
             <li><a href="fabricantes/visualizar.php">Fabricantes</a></li>
             <li><a href="produtos/visualizar.php">Produtos</a></li>
